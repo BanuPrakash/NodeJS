@@ -271,3 +271,18 @@ console.log(add(4,5));
 
 NodeJS and Threads.
 
+NodeJS and async os helpers [anything to do with Network/ sockets]
+
+Event Emitter
+
+EventEmitter exposes methods to interact with events like:
+* once(): add a one-time listener
+* on(): add a listener --> regester for a event
+* removeListener()
+
+---
+For Benchmark, loadtest: Autocannon
+
+npm install -g autocannon
+
+

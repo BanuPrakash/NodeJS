@@ -9,7 +9,7 @@ const start = Date.now();
 
 function doRequest() {
     https.request("https://www.google.com", function(response) {
-        response.on('data', function() {});
+        response.on('data', function(res) { console.log(res)});
         response.on('end', function() {
             console.log(Date.now() - start);
         });
