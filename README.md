@@ -285,4 +285,15 @@ For Benchmark, loadtest: Autocannon
 
 npm install -g autocannon
 
+node server.js
+
+autocannon -c 1000  http://localhost:3000
+
+node --inspect-brk server.js
+
+chrome web browser
+address bar: chrome://inspect/
+
+----------------------------------------------------------------
+
 
