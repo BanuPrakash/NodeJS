@@ -317,3 +317,4 @@ Module System: CommonJS module system is the default module system provided by N
 
 -------------------------
 
+NodeJS is having a single Stack and event loop thread; --> this might lead to issues with CPU intense operations
