@@ -13,8 +13,12 @@ var server = http.createServer( (request, response) => {
         let result = add(parseInt(query.x) , parseInt(query.y));
         response.end(result.toString());
     } else if (pathname === '/subtract') {
+        try {
         let result = subtract(parseInt(query.x) , parseInt(query.y));
         response.end(result.toString());
+        } catch(err) {
+            response.end("Wrong URL", request.url);
+        }
     } else {
         response.end(random(1,100).toString());
     }

@@ -426,3 +426,25 @@ Project-X --> uses react
 
 --------------
 
+JavaScript testing Frameworks
+
+1) Unit testing
+Frameworks for unit testing: Mocha, Jasmine, JEST
+
+2) E2E testing
+Cypress, Protractor, WebDriver, ...
+
+3) API testing ==> PostMAN / rest clients
+
+TESTING -=-> AAA --> Assemble Action Assert
+
+"test": "mocha --reporter spec"
+
+npm i jest
+
+"test": "mocha --reporter spec"
+
+"test": "jest"
+
+
+
