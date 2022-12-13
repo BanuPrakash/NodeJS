@@ -374,8 +374,55 @@ every node project has "node_modules" folder where "3rd party" libraries are ins
 
 npm i mocha chai request -D
 
+ "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "request": "^2.88.2"
+  }
+
+
+devDependencies --> libraries required only in development stage / not required in production code
 
 
 
+Package managers takes care of transitive dependencies also.
+a 1.5.2 --> b 5.2.5 --> c 7.1.1
 
+
+
+"lodash": "4.17.21" ==> exact version
+
+"lodash": "^4.17.21" => minimum version expected is "4.17.21"; can download latest version if available
+
+"lodash": "~4.17.21" ==> expect major version to be "4"; minor version and patch version can be different
+
+
+team members:
+
+folder> npm install
+
+lodash ==> a 1.3.4
+
+dummy ==> a 4.5.6
+
+"Peer dependency"
+
+Project-X --> uses react
+
+ "peerDependencies": {
+    "react": "18.1.0"
+  },
+
+
+ Project-Y uses Project-X
+
+ "dependencies" : {
+ 	"project-x": "1.0.0",
+ 	 "react": "18.1.0"
+ }
+
+--------------
 
