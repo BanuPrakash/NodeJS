@@ -297,3 +297,23 @@ address bar: chrome://inspect/
 ----------------------------------------------------------------
 
 
+Day 2
+
+nodejs as platform --> V8 and Libuv { similar to WebApi of Browser}
+
+setInterval(); --> WebApi in Browser
+setInterval(); --> Libuv in NodeJS
+
+Libuv --> Thread pool / Async Operations --> OS Helpers { this doesn't use Thread pool}
+
+Module System: CommonJS module system is the default module system provided by NodeJS { module.exports and require()}
+
+--> "fs": readFileSync() is a blocking code; readFile() is non blocking executes callback function with the file contents;
+--> EventEmitter: emit("eventname", data); 
+--> on();  is to subscribe for a event
+--> once() is to subscribe for a event; unsubscribe after first-event is reacived
+
+--> fs --> createReadStream() is based on event emitter --> "data", "end", "error"
+
+-------------------------
+
