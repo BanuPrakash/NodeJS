@@ -448,3 +448,29 @@ npm i jest
 
 
 
+  "test": "jest --coverage"
+
+ ----
+
+ Task
+
+ converter.js
+
+ 255, 0 , 255
+ ff00ff
+ function rgbToHex(r, g, b) {
+
+ }
+
+
+ ff00ff
+ 255, 0 , 255
+ function hexToRgb(hex) {
+
+ }
+
+ server.js modify to handle converter
+ http://localhost:3000/rgbToHex?r=255&g=100&b=100
+ http://localhost:3000/hexToRgb?hex=ffffff
+
+ 
