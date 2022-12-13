@@ -318,3 +318,64 @@ Module System: CommonJS module system is the default module system provided by N
 -------------------------
 
 NodeJS is having a single Stack and event loop thread; --> this might lead to issues with CPU intense operations
+
+fork() and spawn();
+
+-----------------------------------------
+
+Node Application:
+
+Node package Managers:
+1) NPM (default)
+2) YARN
+3) PNPM 
+
+$ npm --version
+9.1.1
+
+Package Managers uses:
+1) manage dependencies ==> 3rd party libraries
+
+a) Project specific library
+npm install react
+yarn add react
+
+b) global installation --> only for exectuable module
+npm install -g typescript
+npm root -g
+npm config list
+
+--> Similar to Maven / Gradle; PIP
+
+2) execute scripts
+npm start
+npm test
+npm run development
+
+3) Publish modules
+npm publish
+
+PyTorch ==> Library
+Django ==> Framework ==> APIs ==> Web application
+
+-----------------
+
+steps for node project:
+1) npm init --y
+
+creates a package.json
+similar to "pom.xml" of java
+
+package.json is the place where "dependencies" , "development dependencies" and "peer dependencies" are configured
+
+npm i lodash
+
+every node project has "node_modules" folder where "3rd party" libraries are installed.
+
+npm i mocha chai request -D
+
+
+
+
+
+

@@ -27,6 +27,7 @@ if(cluster.isMaster) {
             res.end();
         })
     });
+    //The cluster module allows easy creation of child processes that all share server ports.
     server.listen(3000);
 }
 
