@@ -10,10 +10,10 @@ var server = http.createServer( (request, response) => {
     var pathname = url.parse(request.url).pathname;
     var query = url.parse(request.url, true).query;
     if(pathname === '/add') {
-        let result = parseInt(query.x) + parseInt(query.y);
+        let result = add(parseInt(query.x) , parseInt(query.y));
         response.end(result.toString());
     } else if (pathname === '/subtract') {
-        let result = parseInt(query.x) - parseInt(query.y);
+        let result = subtract(parseInt(query.x) , parseInt(query.y));
         response.end(result.toString());
     } else {
         response.end(random(1,100).toString());
