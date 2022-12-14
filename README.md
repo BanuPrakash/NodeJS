@@ -478,4 +478,186 @@ npm i jest
 
  Day 3
 
- 
+Recap: Worker, Cluster, Node project--> package.json, NPM / YARN / PNPM --> dependencies, devDependencies, peerDependencies,
+CommonJS module system, mocha/jest
+
+----
+
+
+PM2 -> ADVANCED, PRODUCTION PROCESS MANAGER FOR NODE.JS
+
+npm install pm2 -g
+
+pm2 start server.js -i max
+
+pm2 ls
+
+pm2 monit
+
+
+
+https://app.pm2.io/bucket/
+
+pm2 link amr3md0z4lv5f6a h8ui9rqsh8psv26
+
+pm2 stop <id>
+pm2 stop all
+pm2 delete <id>
+pm2 delete all
+
+Load Balancer --> Nginx
+https://www.nginx.com/
+
+------------------
+
+clinicjs -- > Tools to help diagnose and pinpoint Node.js performance issues
+
+npm i clinic -g
+
+clinic doctor --autocannon [ -c 10 http://localhost:3000 ] -- node slow-event-loop.js
+
+-----------------------------------------------------------------------------------------
+JS --> loosely typed and dynamically typed:
+let x = 100;
+x++;
+
+x = "Tim";
+x.toUpperCase();
+
+x = false;
+
+if(x) {}
+
+
+TypeScript
+npm i -g typescript
+
+ECMA --> JavaScript engine ES5, ES6/ES2015/ ES7-ESNext
+
+(TypeScript / CoffeeScript / Dart / LiveScript) ==> transpile / trans-compiler / pre-processor --> JavaScript --> engine
+
+* TS provides optional type system to JavaScript
+* catch errors by compiler rather than runtime engine
+* enhance code quality and understandibility / documentation
+
+
+1) TypeScript basic types: string, number, boolean
+
+let age:number = 34;
+
+age = "Fifty"; // tsc catches this error
+
+let name:string = "Roger";
+
+
+2) complex types: Type, interface, class, array, enum, union
+
+
+type Person = {
+	name:string;
+	age: number
+};
+
+let p1:Person = {"name": "Rahul", "age": 24};
+
+
+interface Product {
+	id: number;
+	name: string;
+	price: number;
+}
+
+let p1: Product = {"id": 12, "name": "iPhone 14", "price": 890000.00};
+
+
+* interface are extendable [DRY]
+
+// specialization
+interface Mobile extends Product {
+	"connectivity": string
+}
+
+// specialization
+interface Tv extends Product {
+	screenType:string,
+	os:string
+}
+
+let p1: Mobile = {"id": 12, "name": "iPhone 14", "price": 890000.00, "connectivity": "5G"};
+
+
+* interface can be used for realization relationship
+
+// contract
+interface Renderer {
+	render():void
+}
+
+
+
+// realization
+class TvRenderer implements Renderer {
+	// code...
+
+	render() {
+		...
+	}
+}
+
+class WebRenderer implements Renderer {
+	// code...
+
+	render() {
+		...
+	}
+}
+
+* function type
+
+function add(x: number, y: number) : number {
+	return x + y;
+}
+
+add(4,5); // valid
+
+add("a", "b"); // typescript compiler catches this error
+
+function addProduct(p:Product) : void {
+	///
+}
+
+addProduct({"id": 12, "name": "iPhone 14", "price": 890000.00});
+
+----------------------------------------
+
+* any type and unknown type
+
+let data:any = 10;
+
+data = 'test';
+
+data = true;
+
+---
+
+let data:unknown = 10;
+data = "test";
+
+Check examples
+
+----------------
+
+Type Assertions
+
+
+
+
+
+
+
+
+
+
+
+
+
