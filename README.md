@@ -646,8 +646,118 @@ data = "test";
 Check examples
 
 ----------------
+let add = (x,y) => {
+	return x + y;
+}
 
-Type Assertions
+or
+
+let add = (x,y) => x + y;
+
+Type Assertions:
+
+Below code throws error
+```
+interface Product {
+    getName():string;
+}
+
+interface ErrorMsg {
+    getMsg():string
+}
+
+function getData(data: Product | ErrorMsg) {
+    if(typeof data.getName === 'function') {
+        return data.getName();
+    }
+
+    if(typeof data.getMsg === 'function') {
+        return data.getMsg();
+    }
+}
+
+
+console.log(getData({getMsg:() => "Boom :-("}));
+
+```
+
+solution : use type assertions ==> "as"
+
+```
+interface Product {
+    getName():string;
+}
+
+interface ErrorMsg {
+    getMsg():string
+}
+
+function getData(data: Product | ErrorMsg) {
+    if(typeof (data as Product).getName === 'function') {
+        return (data as Product).getName();
+    }
+
+    if(typeof (data as ErrorMsg).getMsg === 'function') {
+        return (data as ErrorMsg).getMsg();
+    }
+}
+
+let err:ErrorMsg = {getMsg:() => "Boom :-("};
+
+console.log(getData(err));
+```
+
+<div id="mydiv"></div>
+
+const myDiv = document.getElementById("mydiv") as HTMLDivElement;
+
+Type Predicates --> "in"
+
+
+interface Product {
+	id:number;
+	name:string;
+	price?:number;
+}
+
+---------------------------------------------------
+Generics, High Order Functions
+
+High Order Functions:
+1) functions which accept function as argument
+2) function return a function
+
+
+let data:number[] = [5,1,12,31,9,46];
+
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  category: string;
+}
+
+let products:Product[] = [
+{"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"},
+{"id":2,"name":"Onida","price":4444.44,"category" : "tv"},
+{"id":3,"name":"OnePlus 6","price":98444.44,"category" : "mobile"},
+{"id":4,"name":"HDMI connector","price":2444.00,"category" : "computer"},
+{"id":5,"name":"Samsung","price":68000.00,"category" : "tv"}];
+
+
+// OCP ==> Closed for Change; open for extension
+// HOF
+function forEach<T>(elems:T[], action:(elem:T) => void):void {
+	let i: number = 0;
+	for(i = 0; i < elems.length; i++) {
+		action(elems[i]);
+	}
+}
+
+forEach(data, console.log);
+forEach(data, alert);
+
+forEach(products, console.log); 
 
 
 
