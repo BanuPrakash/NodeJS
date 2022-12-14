@@ -1,7 +1,7 @@
 // Memoization
 // HOF --> function return a function
 
-function memoize<T,R>(fn:(arg:T) => R) {
+function memoize<T,R>(fn:(arg:T) => R)  {
     var cache = {};
     return function(args) {
         if(!cache[args]) {

@@ -788,6 +788,18 @@ console.log(tenAdder(2));
 
 -------------
 
+function doTask<T,R>(arg1: T, arg2: R) {
+	console.log(arg1 + arg2);
+}
+
+doTask("Hello", 33);
+
+doTask("Hello", "World");
+
+==================
+
+--> Enum, Using JS in TS, Decorator, TS module system, ts utils,...
+
 
 
 
