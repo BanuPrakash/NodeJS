@@ -473,4 +473,9 @@ npm i jest
  http://localhost:3000/rgbToHex?r=255&g=100&b=100
  http://localhost:3000/hexToRgb?hex=ffffff
 
+ ----------------------
+
+
+ Day 3
+
  
