@@ -759,10 +759,34 @@ forEach(data, alert);
 
 forEach(products, console.log); 
 
+=================
 
 
+getProduct(3); --> API call --> DB --> convert data to JSON --> cache-> give it to client
+
+getProduct(2); --> API call --> DB --> convert data to JSON --> cache -> give it to client
 
 
+getProduct(3); --> cache hit
+
+
+----
+
+function adder(base) {
+	return function(no) {
+		return base + no;
+	}
+}
+
+let fiveAdder = adder(5);
+
+console.log(fiveAdder(2));
+console.log(fiveAdder(3));
+
+let tenAdder = adder(10);
+console.log(tenAdder(2));
+
+-------------
 
 
 
