@@ -1,3 +1,7 @@
 declare module 'lodash' {
     export function random(min: number, max : number) : number;
 }
+
+declare module 'chart' {
+    export function pie(data:any[]): void
+}

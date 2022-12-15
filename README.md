@@ -836,7 +836,7 @@ NodeJS resolution
 
 
  tsc --lib "es2015","dom" Example.ts
-
+ 
 
 Promise leads to callback hell:
 fetch('https://jsonplaceholder.typicode.com/users')
@@ -853,5 +853,22 @@ async function getData() {
 }
 
 -----------------------------
+
+TypeScript and JavaScript: using JS libraries in TS
+
+import {random} from 'lodash';
+looks for 'lodash.ts' --> typings.d.ts for module defintion
+
+https://github.com/DefinitelyTyped/DefinitelyTyped
+
+npm i -D @types/lodash
+
+npm i -D @types/node
+
+
+
+
+
+
 
 
