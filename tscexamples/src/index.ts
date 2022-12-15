@@ -1,3 +1,4 @@
+import Person  from './Person';
 import {random} from 'lodash';
 import Product from './Product';
 import {forEach, filter} from './lib';
@@ -19,3 +20,12 @@ forEach(mobiles, console.log);
 
 console.log(random(1, 100));
 
+
+let p1:Person = new Person("Jack", 34);
+let p2:Person = new Person("Jill", 30);
+
+console.log(p1.getName(), p1.getAge());
+console.log(p2.getName(), p2.getAge());
+
+p1.print();
+p2.print();

@@ -866,9 +866,13 @@ npm i -D @types/lodash
 npm i -D @types/node
 
 
+// destructuring
+
+let product =  {"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"};
+
+let {name, price} = product;
 
 
-
-
+Resume @11:20 
 
 
