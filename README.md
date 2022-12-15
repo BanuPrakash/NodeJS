@@ -873,6 +873,151 @@ let product =  {"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"};
 let {name, price} = product;
 
 
-Resume @11:20 
+class type:
 
+```
+export default class Person {
+    name: string; // state --> instance variables
+    age: number; // state 
+
+    constructor(name:string = "", age: number = 0) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+```
+
+
+class Product {
+	id, name, price
+}
+
+// specializtion
+class Tv extends Product {
+	screen
+}
+
+let sony:Tv = new Tv(1, "Sony Bravia", 890000.00, "OLED")
+
+export default class Person implements Printable {
+	print(){}
+}
+
+export default class Product implements Printable {
+	print(){}
+}
+
+
+let data:Printable = getData(); 
+
+data.print();
+
+===========
+
+Decorators 
+
+A Decorator is a special kind of declaration that can be attached to a class declaration, method, accessor, property, or parameter. Decorators use the form @expression, where expression must evaluate to a function that will be called at runtime with information about the decorated declaration.
+
+
+@Component({
+	"selector": "customer",
+	templateUrl:"./customer.html",
+	"styleUrl": "./styles.css"
+})
+public class CustomerComponent {
+	name:string; // state
+	age:number; // state
+}
+
+
+By adding decorator CustomerComponent gets extra fileds [ selector, templateUrl, styleUrl alsong with name and age]
+
+
+@Component({
+	"selector": "customer",
+	template:"<div> ... </div>",
+	"style": "body: {color : red}"
+})
+public class ProductComponent {
+	name:string; // state
+	price:number; // state
+}
+
+-----
+
+public class Component {
+	selector,
+	selectorUrl,
+	template,
+	templateUrl,
+	style,
+	styleUrl
+}
+
+public class Productcomponent extends Component {
+
+}
+
+
+---
+
+Decorators are functions:
+
+1) class Decorator
+
+function classDecorator(constructor:Function) {}
+
+example: function Component(constructor:Function) {}
+
+2) Property Decoratory
+
+function propertyDecorator(target:any, propertyKey:string) {}
+
+function Upper(target:any, propertyKey:string) {}
+
+
+class Product {
+
+	@Upper
+	name:string;
+
+	@Min(3)
+	title:string;
+}
+
+class Person {
+	@Upper
+	@Min(3)
+	firstName:string;
+}
+
+3) Method decorator
+
+function methodDecorator(target:any, methodName:string, descriptor:PropertyDescriptor) {}
+
+function memo(target:any, methodName:string, descriptor:PropertyDescriptor) { // Proxy on actual method}
+
+class Math {
+
+	@Memo
+	fibanocci(no:number): number {
+		...
+	}
+}
+
+In JS everthing is a Object; --> Object is an instance of Function function
+
+function add(x,y) {
+	return x + y;
+}
+
+let add = new Function("x", "y" , "return x + y");
+
+
+add.call()
+add.apply()
+add.bind()
+
+-----------------------------
 

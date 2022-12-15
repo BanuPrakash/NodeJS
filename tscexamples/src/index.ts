@@ -24,8 +24,8 @@ console.log(random(1, 100));
 let p1:Person = new Person("Jack", 34);
 let p2:Person = new Person("Jill", 30);
 
-console.log(p1.getName(), p1.getAge());
-console.log(p2.getName(), p2.getAge());
+console.log(p1.getName(), p1.getAge(), p1["country"]);
+console.log(p2.getName(), p2.getAge(), p2["country"]);
 
 p1.print();
 p2.print();

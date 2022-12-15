@@ -1,5 +1,9 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+const Person_1 = __importDefault(require("./Person"));
 const lodash_1 = require("lodash");
 const lib_1 = require("./lib");
 let products = [
@@ -15,3 +19,9 @@ let mobiles = lib_1.filter(products, e => e.category === 'mobile');
 lib_1.forEach(evens, console.log);
 lib_1.forEach(mobiles, console.log);
 console.log(lodash_1.random(1, 100));
+let p1 = new Person_1.default("Jack", 34);
+let p2 = new Person_1.default("Jill", 30);
+console.log(p1.getName(), p1.getAge(), p1["country"]);
+console.log(p2.getName(), p2.getAge(), p2["country"]);
+p1.print();
+p2.print();
