@@ -7,8 +7,15 @@ const Person_1 = __importDefault(require("./Person"));
 const lodash_1 = require("lodash");
 const lib_1 = require("./lib");
 const User_1 = __importDefault(require("./User"));
-let u = new User_1.default("George");
-console.log(u.name);
+let u = new User_1.default("George", "t1");
+// @ts-ignore
+if (u["errors"]) {
+    // @ts-ignore
+    console.log(u["errors"]);
+}
+else {
+    console.log(u.name);
+}
 let products = [
     { "id": 1, "name": "iPhone", "price": 124447.44, "category": "mobile" },
     { "id": 2, "name": "Onida", "price": 4444.44, "category": "tv" },

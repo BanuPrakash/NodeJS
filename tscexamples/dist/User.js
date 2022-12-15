@@ -9,13 +9,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const Min_1 = __importDefault(require("./Min"));
 const Upper_1 = __importDefault(require("./Upper"));
 class User {
-    constructor(name) {
+    constructor(name, email) {
         this.name = name;
+        this.email = email;
     }
 }
 __decorate([
     Upper_1.default()
 ], User.prototype, "name", void 0);
+__decorate([
+    Min_1.default(5)
+], User.prototype, "email", void 0);
 exports.default = User;
