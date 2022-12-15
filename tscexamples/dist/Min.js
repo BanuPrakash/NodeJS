@@ -2,18 +2,18 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function Min(limit) {
     return function (target, propertyKey) {
-        let value;
+        let x;
         const getter = function () {
-            return value;
+            return x;
         };
         const setter = function (newVal) {
             if (newVal.length < limit) {
                 Object.defineProperty(target, "errors", {
-                    value: "Email should be minimum of " + limit
+                    value: propertyKey + " should be minimum of " + limit
                 });
             }
             else {
-                value = newVal;
+                x = newVal;
             }
         };
         Object.defineProperty(target, propertyKey, {

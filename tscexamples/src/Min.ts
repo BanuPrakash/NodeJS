@@ -1,9 +1,9 @@
 export default function Min(limit:number) {
     return function(target:any, propertyKey:string) {
-        let value:string;
+        let x:string;
 
         const getter = function() {
-            return value;
+            return x;
         }
 
         const setter = function(newVal:string) {
@@ -13,7 +13,7 @@ export default function Min(limit:number) {
                 })
             }
              else {
-                value = newVal;
+                x = newVal;
              }
         }
 

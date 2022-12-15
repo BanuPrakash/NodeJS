@@ -2,6 +2,7 @@ import Person  from './Person';
 import {random} from 'lodash';
 import Product from './Product';
 import {forEach, filter} from './lib';
+import Math from './Math';
 
 import User from './User';
 let u:User = new User("George", "t1");
@@ -41,3 +42,14 @@ console.log(p2.getName(), p2.getAge(), p2["country"]);
 
 p1.print();
 p2.print();
+
+console.log("************");
+
+let m:Math = new Math();
+console.log(m.add(4,5));
+console.log(m.add(4,5));
+console.log(m.add(4,5));
+console.log(m.add(4,5));
+
+console.log("-----");
+console.log(m.add(42,51));
