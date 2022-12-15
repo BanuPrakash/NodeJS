@@ -802,8 +802,56 @@ doTask("Hello", "World");
 
 
 
+Recap: --> Typescript, simple types, type, interface, any, unknown, as, in, is operators, HOF and generics
 
 
+Day 4:
 
+create package.json with initial config:
+
+tscexamples> npm init --y
+
+
+tscexamples> npm i typescript -D
+
+tscexamples> tsc --init
+
+this creates tsconfig.json
+
+https://caniuse.com/
+
+import {random} from 'lodash'; ==> let {random} = require('lodash');
+
+
+Tracuer/Babel { ES2015 --> ES5}
+
+
+moduleResolution:
+
+import {random} from './lib';
+
+NodeJS resolution
+
+ --> check in current folder {relativepath} for 'lib.tsx' --> 'lib.ts' --> 'lib.jsx' --> 'lib.js' or find "main file --> generally index.js" in "lib" folder
+
+
+ tsc --lib "es2015","dom" Example.ts
+
+
+Promise leads to callback hell:
+fetch('https://jsonplaceholder.typicode.com/users')
+	.then(response => response.json())
+	.then(data => console.log(data));
+
+
+ Async and Await:
+
+async function getData() {
+	let response = await fetch('https://jsonplaceholder.typicode.com/users');
+	let data = await response.json();
+	return data;
+}
+
+-----------------------------
 
 
