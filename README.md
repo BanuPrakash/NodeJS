@@ -1162,8 +1162,82 @@ root@67c94a75e6f7:/# mongoimport --db adobe_express --collection sales --drop --
  
 root@67c94a75e6f7:/# mongoimport --db adobe_express --collection employees --drop --file tmp/employees.json
 
+---
 
-===
+docker exec -it mongodb bash
+# mongosh
+
+test> use adobe_express
+// select * from employees
+adobe_express> db.employees.find()
+
+// select * from sales
+adobe_express> db.sales.find()
+
+// select * from sales where quarter = 1
+
+adobe_express> db.sales.find({'quarter': 1})
+
+
+MongoDB driver for Node.js [ NodeJS ==> MongoDB Driver ==> Mongodb database]
+
+Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. ==> ODM similar ORM
+
+https://mongoosejs.com/docs/guide.html
+
+Everything in Mongoose starts with a Schema. Each schema maps to a MongoDB collection 
+
+const blogSchema = new Schema({
+  title:  String, 
+  author: String,
+  body:   String,
+  comments: [{ body: String, date: Date }],
+  date: { type: Date, default: Date.now },
+  hidden: Boolean,
+  meta: {
+    votes: Number,
+    favs:  Number
+  }
+});
+
+// blogSchema is mapped to "blogs" collection
+// Blog Model is used to perform CRUD opertion
+
+const Blog = mongoose.model('Blogs', blogSchema);
+
+
+const breakfastSchema = new Schema({
+  eggs: {
+    type: Number,
+    min: [6, 'Too few eggs'],
+    max: 12
+  },
+  bacon: {
+    type: Number,
+    required: [true, 'Why no bacon?']
+  },
+  drink: {
+    type: String,
+    enum: ['Coffee', 'Tea'],
+    required: function() {
+      return this.bacon > 3;
+    }
+  }
+});
+
+
+
+
+const Employee = mongoose.model('employee', employeeSchema);
+
+The first argument is the singular name of the collection your model is for. Mongoose automatically looks for the plural, 
+lowercased version of your model name. Thus, for the example above, the model Tank is for the tanks collection in the database.
+
+------------------------------------------------
+
+
+
+
 
 
 
