@@ -1090,9 +1090,83 @@ expressapp> tsc --init
 
 Flow:
 
-api.ts ==> Middleware [cors / json] ==> Routes ==> Middleware ==> Controller ==> Service ==> database
+api.ts ==> Middleware [cors / json] ==> Routes ==> Middleware ==> Controller ==> Service ==> database [mongodb / mysql]
 
 http://localhost:3000/
 http://localhost:3000/products
 http://localhost:3000/products/3
+ 
+POSTMAN 
+post: http://localhost:3000/products
+
+Headers:
+Accept: text/plain
+Content-type: application/json
+
+Body: ==> Raw
+{
+    "id": 6,
+    "name": "Bosh Dishwasher",
+    "price": 45000.00,
+    "category": "machine"
+}
+
+SEND>>
+
+----------------------
+
+MongoDB ==> NoSQL database ==> not relational database {PK, Foriegn Key}
+
+BSON ==> Binary of JSON
+
+RDBMS  					MongoDB
+database 				database
+table  					collection
+row 					document
+column 					field
+
+Docker Desktop
+
+docker run --name some-mongo -d mongo:latest -p 27017:27017
+ 
+for Mac:
+docker run -d -p 27017:27017 --name mongodb mongo:latest
+
+Docker Client:
+
+docker exec -it mongodb bash
+ 
+root@67c94a75e6f7:/# mongosh
+
+test> show databases;
+
+----
+
+Insert records into Mongodb
+
+JSON file ==> importing data into Mongodb
+
+OS terminal
+C:\Users\banup\Desktop\Adobe_node\NodeJS>docker cp sales.json mongodb:/tmp/sales.json
+
+C:\Users\banup\Desktop\Adobe_node\NodeJS>docker cp employees.json mongodb:/tmp/employees.json
+
+
+===
+C:\Users\banup\Desktop\Adobe_node\NodeJS>docker cp sales.json mongodb:/tmp/sales.json
+
+C:\Users\banup\Desktop\Adobe_node\NodeJS>docker cp employees.json mongodb:/tmp/employees.json
+
+C:\Users\banup\Desktop\Adobe_node\NodeJS>docker exec -it mongodb bash
+root@67c94a75e6f7:/# mongoimport --db adobe_express --collection sales --drop --file tmp/sales.json
+ 
+root@67c94a75e6f7:/# mongoimport --db adobe_express --collection employees --drop --file tmp/employees.json
+
+
+===
+
+
+
+
+
 

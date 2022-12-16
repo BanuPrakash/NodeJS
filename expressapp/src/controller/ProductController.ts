@@ -4,7 +4,7 @@ import ProductService  from "../service/ProductService"; // object imported
 export class ProductController {
     async listProducts(req:Request, res: Response) {
         const products = await ProductService.getProducts();
-        res.status(200).send(products);
+         res.status(200).send(products);
     }
 
     // http://localhost:3000/products/3

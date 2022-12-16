@@ -20,5 +20,13 @@ app.get("/", (req:Request, res:Response) => {
 
 new ProductRoutes(app).configureRoutes();
  
+// global error handling
+app.use((err: Error,req:express.Request, res:express.Response, next:express.NextFunction) => {
+    console.log(err.stack);
+    res.status(500).send("Boom :-(");
+    next();
+});
+
+
 
 server.listen(process.env.PORT || 3000 , () => console.log("server started!!!"));

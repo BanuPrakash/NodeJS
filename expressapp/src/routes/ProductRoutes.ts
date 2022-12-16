@@ -1,5 +1,6 @@
 import express from 'express';
 import ProductController from "../controller/ProductController";
+import ProductMiddleWare from '../controller/ProductMiddleWare';
 
 // delegate call to controller based on URL
 export class ProductRoutes {
@@ -9,7 +10,7 @@ export class ProductRoutes {
         // http:localhost:3000/products
         this.app.route("/products")
         .get(ProductController.listProducts)
-        .post(ProductController.createProduct);
+        .post(ProductMiddleWare.validateProductBodyField, ProductController.createProduct);
 
         // http:localhost:3000/products/4
         this.app.route("/products/:id")
