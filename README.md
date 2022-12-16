@@ -1088,5 +1088,11 @@ expressapp> tsc --init
 
 
 
+Flow:
 
+api.ts ==> Middleware [cors / json] ==> Routes ==> Middleware ==> Controller ==> Service ==> database
+
+http://localhost:3000/
+http://localhost:3000/products
+http://localhost:3000/products/3
 
