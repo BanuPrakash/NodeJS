@@ -1429,6 +1429,160 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbnVAZ
 
 
 
+=====================================================================
+
+UI:
+
+http://localhost:3000/login.html
+
+email : textbox
+password:textbox
+submit button
+
+on click of submit button:
+
+document.getElementById("btn").addEventListener("click", () => {
+	axios.post("http://localhost:3000/login", {
+			email:document.getelementById("email"),
+			password: document.getElementById("password")
+		})
+});
+
+-----------
+
+Use require('https');
+
+SSH ==> private key and public key
+
+```
+var   fs = require("fs"),
+      http = require("https");
+
+var privateKey = fs.readFileSync('sslcert/server.key').toString();
+var certificate = fs.readFileSync('sslcert/server.crt').toString();
+
+var credentials = {key: privateKey, cert: certificate};
+
+var server = http.createServer(credentials,function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+});
+
+server.listen(8000);
+
+```
+
+Working with Multiple GitRepo
+
+GitRepo1:
+servicesLib
+	package.json
+	files
+
+
+GitRepo2:
+apiModule
+	package.json
+	routes/ controllers
+	apiModule uses servicesLib
+
+
+Scenario 1: both present in single machine
+
+every changes done to GitRepo1 ==> npm publish
+
+in GitRepo2: --> every time i need to run "npm update" before we code
+
+
+@angular/core
+
+
+Solution 1: 
+Project 1 we run
+$ npm link
+
+
+Project 2:
+testlink>npm link @proj/commonlib
+
+
+----------------
+
+MonoRepo
+
+Monolithic application
+	a single gitrepo with single package.json having all the modules
+	a application can have "customer module", "payment module", "order module" , "common module"
+
+Multi-repo
+	customer module in one gitrepo
+	payment module in one gitrepo
+	common module in one gitrepo
+
+Mono-Repo:
+	single repository contains all the code for a given project
+
+	Advantages: On source of truth
+	code reuse
+
+	Disadvantage: unable to restrict access
+	long build time
+	Git performance 
+
+Monorepo tools : Lerna, Bazel and Rush
+
+---
+
+npm i @microsoft/rush -g
+
+npm i pnpm -g
+
+md rushexample
+cd rushexample
+
+Intialize Rush project:
+rushexample> rush init
+
+rushexample/lib>pnpm init 
+rushexample/lib>rush add -lodash 
+rushexample/lib>rush add @types/lodash --dev
+
+in package.json of "lib"
+ "name": "@share/lib"
+
+ rush.json
+
+ --
+
+ md api
+ cd api
+ api> pnpm init
+
+make entries in rush.json
+
+Adding dependencies in "rush":
+
+api> rush add -p express
+api> rush add -p @types/express --dev
+
+api ==> package.json
+
+once rush.json is modified execute from any folder/sub-folder
+$ rush update
+
+$ rushx start
+
+similar to "npm start"
+
+
+https://rushjs.io/
+
+===============
+
+YARN workspaces
+
+Lerna workspaces
+
 
 
 

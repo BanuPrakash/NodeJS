@@ -27,7 +27,10 @@ class UserService {
         let u = this.users.find(u => u.email == user.email);
         if(u ! == null || u !== undefined) {
             return {
-                token: jwt.sign({email:u!.email}, this.__jwtSecret)
+                token: jwt.sign({email:u!.email}, this.__jwtSecret, {
+                    expiresIn: new Date().getMilliseconds() + 10000* 30,
+                    issuer: "Adobe"
+                })
             }
         }
     }
