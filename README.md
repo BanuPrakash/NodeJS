@@ -1236,11 +1236,26 @@ lowercased version of your model name. Thus, for the example above, the model Ta
 ------------------------------------------------
 
 
+expressapp> npm i mongoose
+expressapp> npm i @types/mongoose -D
+
+---
+
+TypeScript Util:
+
+interface Person {
+	id: number,
+	name: string,
+	age: number;
+}
+
+let p:Person = {id: 1, "name": "A", "age": 22};
 
 
+let p:Partial<Person> = {id: 1, "name": "A" }; // valid
 
 
-
+=============================================================
 
 
 
