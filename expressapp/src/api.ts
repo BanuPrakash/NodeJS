@@ -1,5 +1,5 @@
 import express, {Application, Request, Response} from 'express'; 
-
+import path from 'path';
 import {Server, createServer} from 'http';
 import mongoose from 'mongoose';
 import { EmployeeRoutes } from './routes/EmployeeRoutes';
@@ -9,6 +9,8 @@ import {ProductRoutes} from './routes/ProductRoutes';
 const app:Application = express();
 
 const server:Server = createServer(app);
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('view engine', 'ejs');
 
