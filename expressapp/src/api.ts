@@ -10,6 +10,7 @@ const app:Application = express();
 
 const server:Server = createServer(app);
 
+app.set('view engine', 'ejs');
 
 // JSON.parse(string) and JSON.stringify(...);
 app.use(express.json()); // built-in middleware
@@ -19,6 +20,16 @@ app.use(express.json()); // built-in middleware
 app.get("/", (req:Request, res:Response) => {
     res.status(200).send("Server running on port 3000!!!!");
 });
+
+app.get('/productView', (req, res) => {
+    // productPage.ejs ==> generates dynamic HTML content
+    res.render('productPage', { title: 'Products List', products:  [
+        {"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"},
+        {"id":2,"name":"Onida","price":4444.44,"category" : "tv"},
+        {"id":3,"name":"OnePlus 6","price":98444.44,"category" : "mobile"},
+        {"id":4,"name":"HDMI connector","price":2444.00,"category" : "computer"},
+        {"id":5,"name":"Samsung","price":68000.00,"category" : "tv"}]})
+})
 
 new ProductRoutes(app).configureRoutes();
 new EmployeeRoutes(app).configureRoutes();

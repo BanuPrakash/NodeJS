@@ -1257,5 +1257,72 @@ let p:Partial<Person> = {id: 1, "name": "A" }; // valid
 
 =============================================================
 
+ExpressJS --> JS Web framework --> simplifies building RESTful ws and traditional web application [ SSR ]
+
+const app = new express();
+
+http.createServer(app); // 
+
+app.get("/", ...);
+app.post("/", ...);
+
+app.get("/products", ...);
+app.delete("/products/:id", ...);
+
+api.ts ==> Middleware {cors, body-parser, cookie-parser} ==> Routes ==> Middleware {validation, encoding} ==> Controller ===> service ==> database
+
+Request Handlers:
+
+(req:Request, res:Response) => {}
+
+MiddleWare Handlers:
+(req:Request, res:Response, next:NextFunction) => {
+	// do pre code ==> like validation
+	next();
+}
+
+Error Handlers:
+(err:Error, req:Request, res:Response, next:NextFunction) => {
+	// handle errors ==> log, ...
+	next();
+}
+
+
+----------
+Sequealize --> ORM --> uses RDBMS drivers [mysql driver] to connect to Relational Database
+Mongoose --> ODM --> uses Mongodb Driver to connect to MongoDB
+
+Schema ==> map fields to mongodb collection with optional validation.
+
+Model ==> Once Schema is mapped to collection we get model, using which we perform CRUD operation
+
+POSTMAN:
+
+POST http://localhost:3000/employees
+Headers:
+Accept: text/plain
+Content-type: application/json
+
+BODY ==> Raw
+
+{"id":8,"name":"Lionel Messi","username":"Messi, Lionel","email":"Tgoat@gmail.com","company":"FIFA"}
+
+
+---
+
+DELETE http://localhost:3000/employees/8
+Headers:
+Accept: text/plain
+Content-type: application/json
+
+----------------------------------------
+
+Server Side Rendering ==> SSR
+Express uses view engines: Mustache, Handlebars, PUG, JADE, EJS, Underscore, ...
+
+npm i ejs
+
+
+
 
 
