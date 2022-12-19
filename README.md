@@ -1368,7 +1368,64 @@ HMACSHA256(
 
 https://jwt.io/
 
+npm install jsonwebtoken
 
+npm i @types/jsonwebtoken -D
+
+
+npm i bcrypt 
+
+npm i @types/bcrypt -D
+
+===
+
+Once user login we get
+
+{
+	token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.
+SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+}
+
+subsequent request:
+
+GET: http://localhost:3000/products
+
+headers;
+Accept:
+Content-type:
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.
+SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+
+
+
+----------
+
+POST : http://localhost:3000/register
+{
+    "email": "banu@gmail.com",
+    "password": "test123"
+}
+
+POST: http://localhost:3000/login
+
+{
+    "email": "banu@gmail.com",
+    "password": "test123"
+}
+
+Response:
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbnVAZ21haWwuY29tIiwiaWF0IjoxNjcxNDMxNjUwfQ._z8kYz9WeihrZ975IGETk8cOO__Wnu9Q97uIuJyEQ5c"
+}
+
+
+
+GET: http://localhost:3000/products
+
+Accept: appication/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbnVAZ21haWwuY29tIiwiaWF0IjoxNjcxNDMxNjUwfQ._z8kYz9WeihrZ975IGETk8cOO__Wnu9Q97uIuJyEQ5c
 
 
 

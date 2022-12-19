@@ -5,6 +5,8 @@ import mongoose from 'mongoose';
 import { EmployeeRoutes } from './routes/EmployeeRoutes';
 
 import {ProductRoutes} from './routes/ProductRoutes';
+import { UserRoutes } from './routes/UserRoutes';
+import { tokenGuard } from './token.guard';
 
 const app:Application = express();
 
@@ -23,6 +25,15 @@ app.get("/", (req:Request, res:Response) => {
     res.status(200).send("Server running on port 3000!!!!");
 });
 
+
+
+new UserRoutes(app).configureRoutes();
+
+app.use(tokenGuard);
+// protected resouces
+new ProductRoutes(app).configureRoutes();
+new EmployeeRoutes(app).configureRoutes();
+
 app.get('/productView', (req, res) => {
     // productPage.ejs ==> generates dynamic HTML content
     res.render('productPage', { title: 'Products List', products:  [
@@ -33,8 +44,6 @@ app.get('/productView', (req, res) => {
         {"id":5,"name":"Samsung","price":68000.00,"category" : "tv"}]})
 })
 
-new ProductRoutes(app).configureRoutes();
-new EmployeeRoutes(app).configureRoutes();
 
 mongoose.connect("mongodb://localhost:27017/adobe_express", () => {
     console.log("mongodb connected!!!");
