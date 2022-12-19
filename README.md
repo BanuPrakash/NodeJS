@@ -1322,6 +1322,56 @@ Express uses view engines: Mustache, Handlebars, PUG, JADE, EJS, Underscore, ...
 
 npm i ejs
 
+http://localhost:3000/productView
+
+-----------------------------------------
+
+Security ==> Authentication and Authorization
+
+Session Tracking:
+
+HTTP protocol is a stateless protocol.
+Session Tracking gives the ability to keep conversational state of a client.
+
+* cookie
+
+JWT ==> Json Web token
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.
+SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+
+HEADERS:
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+
+PAYLOAD:
+{
+  "sub": "banu@gmail.com",
+  "iat": 1516239022,
+  "exp": 3223334,
+  "iss": "adobe",
+  "authorities": "ADMIN, MANAGER"
+}
+
+SIGNATURE:
+
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  abracadabratopsecret123
+) 
+
+=============
+
+https://jwt.io/
+
+
+
+
+
 
 
 
