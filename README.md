@@ -200,6 +200,8 @@ Clusters of Node.js processes can be used to run multiple instances of Node.js t
 
 The cluster module allows easy creation of child processes that all share server ports.
 
+https://www.npmjs.com/package/pm2
+
 PM2: PM2 is a daemon process manager that will help you manage and keep your application online 24/7
 
 npx pm2 start server3.js -i 4
@@ -220,4 +222,16 @@ Dashboard ==> Metrics
 1) free bucket
  Connect+ 
 2) npx pm2 link amr3md0z4lv5f6a h8ui9rqsh8psv26
+
+===
+
+Debug:
+node --inspect-brk server3.js
+
+Chrome:
+addressbar: chrome://inspect
+
+====
+
+NodeJS project, Build tool, Testing,..
 
