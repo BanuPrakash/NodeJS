@@ -165,3 +165,59 @@ let {add, subtract} = require('./lib');
 5) System
 ..
 
+https://www.jsv9000.app/
+
+http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D
+
+```
+console.log("Hello");
+
+setTimeout(function one() {
+    console.log("1");
+}, 0);
+
+setTimeout(function two() {
+    console.log("2");
+}, 0);
+
+Promise.resolve().then(function p1() {
+    console.log("p1");
+});
+
+Promise.resolve().then(function p2() {
+    console.log("p2");
+});
+
+console.log("Bye");
+```
+
+
+ab -n 2000 -c 100 http://localhost:1234/
+
+
+To make it highly available server ==> Cluster
+Clusters of Node.js processes can be used to run multiple instances of Node.js that can distribute workloads among their application threads.
+
+The cluster module allows easy creation of child processes that all share server ports.
+
+PM2: PM2 is a daemon process manager that will help you manage and keep your application online 24/7
+
+npx pm2 start server3.js -i 4
+or
+npx pm2 start server3.js -i 0
+
+npx pm2 list
+
+npx pm2 delete id/all
+
+npx pm2 restart id/all
+
+npx pm2 monit
+
+Dashboard ==> Metrics
+// pm2 website
+
+1) free bucket
+ Connect+ 
+2) npx pm2 link amr3md0z4lv5f6a h8ui9rqsh8psv26
+

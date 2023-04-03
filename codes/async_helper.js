@@ -6,6 +6,7 @@ function doRequest() {
     https.request("https://jsonplaceholder.typicode.com/users", response => {
         response.on("data", (chunk) => {
           //  console.log(chunk.toString())
+          // event.emit("sync", data);
         }),
         response.on("end", () => {
             console.log(Date.now() - start);
