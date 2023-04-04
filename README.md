@@ -343,3 +343,26 @@ let products = [
 filter(products, p -> p.category === 'mobile')
 
 $ npm start
+
+===============
+
+Testing JS
+1) Unit Testing
+* Mocha
+* Jasmine
+* Jest
+
+2) E2E Testing
+* Cypress
+* PlayWright
+* WebDriver.io
+
+Chai is a  assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
+
+AAA ==> Assemble Action Assert
+
+Conventions for testing files:
+lib.test.js ==> for unit testing
+user.spec.js ==> for E2E
+
+
