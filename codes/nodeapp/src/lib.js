@@ -19,13 +19,16 @@ function filter(elems, predicate) {
             result.push(e);
         }
     });
-
     return result;
 }
 
 // HOF
 function map(elems, transformFn) {
-    // TODO
+    let result = [];
+    forEach(elems, e => {
+        result.push(transformFn(e));
+    });
+    return result;
 }
 
 module.exports = {add, filter, forEach, map};

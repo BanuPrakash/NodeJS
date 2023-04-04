@@ -365,4 +365,237 @@ Conventions for testing files:
 lib.test.js ==> for unit testing
 user.spec.js ==> for E2E
 
+============================
+
+TypeScript
+
+JavaScript ==> needs JavaScript engine
+
+JS version ==> ECMA
+
+Developers can choose to write code in latest version of JS, DART, TypeScript, CoffeeScript, LiveScript
+
+https://caniuse.com/
+
+"Babel/Tracuer" is used to transpile Higher version JS to lower version of JS to make it compatable accross browser, we may need pollyfills.
+
+A polyfill is a piece of code (usually JavaScript on the Web) used to provide modern functionality on older browsers that do not natively support it.
+
+Promise is ES6 feature, pollyfill like Bluebird / jquery promise in place of ES6 promise
+
+
+DART, TypeScript, CoffeeScript ==> transpile / transcompiler/pre-processor ==> Lower version of JS {engine compatiable}
+
+csc a.cs ==> a.js
+
+lsc a.ls ==> a.js
+
+tsc a.ts ==> a.js
+
+
+$ npm i -g typescript
+
+$ tsc --version
+Version 4.9.5
+
+TypeScript
+* Provide optional type system for JavaScript, statically typed
+
+JavaScript is dynamically typed language, based on literal value it takes the type of data
+let x = "Test"; // string
+x.toUpperCase();
+
+x = 12; // number
+x++;
+
+x = true; // boolean
+
+in TypeScript:
+let name:string = "George";
+name = 10; // tsc throws error
+
+* Types have proven ability to enhance code quality and understability
+let p:Person;
+
+* Early detection of errors, rather than failing at runtime
+
+-----
+
+TypeScript types:
+Basic types: string, number, boolean
+
+let name:string = "Danny";
+let age:number = 34;
+
+Complex types:
+
+1) enum
+enum Direction {
+    North:'N',
+    South:'S',
+    East: 'E'
+}
+
+let d:Direction = Direction.North;
+
+2) type
+
+type Product = {
+    name:string,
+    price:number
+}
+
+function addProduct(p:Product) : void {
+    //
+}
+
+addProduct({name:"iPhone", price: 76000}); //valid
+addProduct({name:"iPhone"}); //invalid ==> tsc picks this error
+
+3) interface
+3.1) to define a shape like "type"
+interface Product {
+    name:string,
+    price:number
+}
+// Apply DRY
+interface is extendable
+// extends is for inheritance ==> Specialization
+interface Mobile extends Product {
+    camera:string,
+    connectivity:string
+}
+
+interface Tv extends Product {
+    screenType:string
+}
+function addMobile(m:Mobile):void {
+    //
+}
+
+addMobile({name:"OnePlus12T", price:98000.00, camera:"64GB", connectivity:"5G"})
+
+3.2) Realization relationship ==> contract
+
+interface Renderer {
+    render():void;
+}
+// implements -=-> Realization
+class WebRenderer implements Renderer {
+        //
+
+        render(): void {
+            // logic
+        }
+}
+
+class TvRenderer implements Renderer {
+        //
+
+        render(): void {
+            // logic
+        }
+}
+
+let render:Renderer = new WebRenderer();
+render.render();
+
+4) any 
+
+let data:any = "test";
+
+data = 45;
+
+let x:number = data;
+
+data = {};
+
+let data:any = jsFunction(); 
+
+5) unknown
+
+let data:unknown = "test";
+data = 45;
+let x:number = data; // error
+
+* any can be assigend to any type
+* unknown can be assigend to another unknown type
+* before using unknow type -> typechecking has to be done
+
+------
+
+```
+Type Assertions ==> "as"
+interface Product {
+    name:string;
+}
+
+interface ErrorType {
+    msg:string;
+}
+// | union type
+function printData(data: Product | ErrorType) :void {
+    if(typeof (data as Product).name === 'string') {
+        console.log((data as Product).name);
+    }
+}
+
+printData({"msg":"Invalid Data"});
+
+printData({"name":"Macbook Pro"});
+```
+
+"in" operator
+
+```
+
+interface Product {
+    name:string;
+}
+
+interface ErrorType {
+    msg:string;
+}
+// | union type
+function printData(data: Product | ErrorType) :void {
+    if("name" in data) {
+        console.log("Result ", data.name);
+    } else if ("msg" in data) {
+        console.log("Error ", data.msg);
+    }
+}
+
+printData({"msg":"Invalid Data"});
+
+printData({"name":"Macbook Pro"});
+
+```
+Type Predicates ==> "is"
+
+<div class="card"></div>
+
+const card = document.getElementById(".card") as HTMLDivElement;
+// access to all apis of <div>
+
+// ES 6
+import BrowserRouter as Router from '..');
+
+Optional:
+
+interface Product {
+    name:string,
+    price:number,
+    company?:string
+}
+
+company is optional
+
+let p:Product = {name:"Inverter AC", price:45000.00}; // valid 
+
+----
+
+Not null Assertion [Postfix !]
+
+========================
+
 
