@@ -231,7 +231,115 @@ node --inspect-brk server3.js
 Chrome:
 addressbar: chrome://inspect
 
-====
+=======================================================
 
-NodeJS project, Build tool, Testing,..
+Day 2
 
+Worker Threads
+
+Node package Managers 
+* manage dependencies --> 3rd party modules
+* publish modules to repository
+* to run scripts {start, build, test}
+
+* NPM is the default package manager --> installed along with NodeJS
+* YARN
+* PNPM
+* Rush / Lerna /...
+
+$ npm --version
+9.1.3
+
+
+NPM can install packages for a given project or install globally
+
+Global installation is only for executable module
+
+Example:
+
+Project specific installation
+npm i react
+
+Global installation
+npm i -g typescript
+
+npm list -g
+/usr/local/lib
+
+npm config list
+
+npm config ls -l
+
+registry = "https://registry.npmjs.org/" 
+https://www.npmjs.com/
+
+---
+
+npm i -g yarn
+
+yarn add react
+
+===========================
+
+node project
+
+mkdir nodeapp
+cd nodeapp
+nodeapp> npm init --y
+
+this creates package.json ==> one per project
+file where depenencies, development dependecies, peer dependecies, scripts, .. are configured
+
+npm i lodash
+downloads module "lodash" from repository into "node_modules" of the project
+adds 
+"lodash": "^4.17.21" in package.json
+"lodash": "4.17.21" ==> exact version
+"lodash": "^4.17.21" ==> 4.17.21 or higher version
+"lodash": "~4.17.21" ==> Major version has to be "4" minor and patch can be latest
+as in "4.18.21" is valid for download
+
+When this project is published to repository, we don't push "node_modules" folder
+
+team members will download the project from repo and run:
+$ npm i
+
+--> this also takes care of transative dependencies
+A.1.23.33.jar ==> B.5.2.1.jar  ==> C.6.113.1.jar
+
+npm i A 
+will install B and C also
+
+Development dependencies
+npm i -D jest chai
+
+Development dependecies ==> not required in production:
+Testing, Static Code analysis, compiler
+
+
+nodeapp> npm init --y
+nodeapp>npm i -D jest chai
+nodeapp>npm i lodash
+
+// SOLID design principles
+High Order Function: ==> OCP ==> Closed for Change, Open for Extension
+1) functions which accept other function as argument
+2) function return a function
+
+
+let data = [5,2,8,3,7];
+
+e => e % 2 == 0
+
+filter(data, e => e % 2 == 0)
+
+let products = [
+    {"id": 1, "name": "iPhone 14", "price": 120000.00, "category" : "mobile"},
+    {"id": 2, "name": "Samsung ", "price": 240000.00, "category" : "tv"},
+    {"id": 3, "name": "Redmi", "price": 8900.00, "category" : "mobile"},
+     {"id": 4, "name": "Wacom", "price": 9811.00, "category" : "computer"}
+]
+
+filter(products, p -> p.category === 'mobile')
+
+$ npm start
