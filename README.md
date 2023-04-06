@@ -632,3 +632,32 @@ and executes compiled "js"
 --> good in development stage
 
 https://rxmarbles.com/
+
+HOF:
+* function accept function as argument ==> filter, forEach, map, reduce,..
+* function returning a function
+
+function adder(base) {
+    return function(value) {
+        return base + value;
+    }
+}
+
+let fiveAdder = adder(5);
+fiveAdder(2); // 7
+fiveAdder(3); // 8
+
+let tenAdder = adder(10);
+tenAdder(2); // 12
+
+Closure ==> inner function can access all the members of outer functions
+
+
+getEmployee(2); ==> RESTApi ==> DB ==> returns data ==> JSON ==> response
+
+getEmployee(3); ==> RESTApi ==> DB ==> returns data ==> JSON ==> response
+
+getEmployee(2); ==> get result from cache
+
+Memoize:In computing, memoization or memoisation is an optimization technique used primarily to speed up computer programs by storing the results of expensive operations.
+

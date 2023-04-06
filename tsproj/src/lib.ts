@@ -24,12 +24,24 @@ function filter<T>(elems:T[], predicate:(elem:T) => boolean): T[] {
 }
 
 // HOF
-function map(elems:any[], transformFn:any) {
-    let result:any = [];
+function map<T,R>(elems:T[], transformFn:(elem:T) => R):R[] {
+    let result:R[] = [];
     forEach(elems, e => {
         result.push(transformFn(e));
     });
     return result;
 }
 
-export {add, forEach, filter, map};
+function memoize<T,R>(fn:(arg:T) => R) {
+    var cache ={};
+    return function(arg:T) {
+        // @ts-ignore
+        if(!cache[arg]) {
+            // @ts-ignore
+            cache[arg] = fn(arg);
+        }
+        // @ts-ignore
+        return cache[arg];
+    }
+}
+export {add, forEach, filter, map, memoize};
