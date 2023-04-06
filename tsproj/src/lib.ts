@@ -32,8 +32,8 @@ function map<T,R>(elems:T[], transformFn:(elem:T) => R):R[] {
     return result;
 }
 
-function memoize<T,R>(fn:(arg:T) => R) {
-    var cache ={};
+export default function memoize<T extends number | string,R>(fn:(arg:T) => R) {
+    var cache:{T?:R} ={};
     return function(arg:T) {
         // @ts-ignore
         if(!cache[arg]) {
@@ -44,4 +44,4 @@ function memoize<T,R>(fn:(arg:T) => R) {
         return cache[arg];
     }
 }
-export {add, forEach, filter, map, memoize};
+export {add, forEach, filter, map};

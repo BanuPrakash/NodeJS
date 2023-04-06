@@ -692,13 +692,219 @@ npm i @types/node -D
 
 ==============
 
-Decorator and Webpack
+```
+export default class Student {
+    name:string; // instance variable
+    age:number; // instance variable
 
-Resume @ 4:00
+    constructor(name:string, age:number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    getName() {
+        return this.name;
+    }
+
+    getAge () {
+        return this.age;
+    }
+
+    setName(name:string) {
+        this.name = name;
+    }
+
+}
+```
+
+export class Product {
+    constructor(private id:number, private name:string, private price:number) {}
+}
+// extends ==> inheritance
+export class Mobile extends Product {
+    constructor(private id:number, private name:string, private price:number, private connectivity) {
+        super(id, name, price); // chaininig constructor
+    }
+} 
+
+TS doesn't support multiple inheritance
+
+export class A implements I1, I2 {
+
+}
+
+============
+
+TypeScript Utils
+1) Partial --> fields Optional
+
+interface User {
+    id:number,
+    username:string,
+    email:string,
+    password:string
+}
+
+function log(u:Partial<User>) {
+
+}
+
+log({"username":"A", "password":"secret123"});
+
+2) Required --> make all fields required
 
 
+interface User {
+    id?:number,
+    username?:string,
+    email?:string,
+    password?:string
+}
+
+function register(u:Required<User>) {
+
+}
+
+3) ReadOnly
+
+4) ReturnType
+
+function doTask() {
+    return {
+        "userId": 1,
+        "id": 3,
+        "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
+        "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
+        }
+}
+
+type T = ReturnType<typeof doTask>;
+
+let retVal:T = doTask();
+
+5) Pick
+
+interface User {
+    id:number,
+    username:string,
+    email:string,
+    password:string
+}
+
+function log(u:Pick<User, "username" | "password">) {
+
+}
+
+6) Omit
+
+====================
+
+Decorator
+
+React doesn't use decoractor
+
+class ProductComponent extends Component {
+
+}
+
+Angular uses Decorator:
+
+@Component({
+    selector:'app-product',
+    template:'<div> </div>',
+    stylesUrl:['style.css']
+})
+class ProductComponent {
+
+}
 
 
+@Component({
+    selector:'app-customer',
+    template:'<div> </div>',
+    stylesUrl:['style.css']
+})
+class CustomerComponent {
+
+}
+----
+
+TS Decorators:
+1) class level decorator
+function classDecorator(constructor:Function) {}
+Example:
+```
+
+@Component({
+    selector:'app-customer',
+    template:'<div> </div>',
+    stylesUrl:['style.css']
+})
+class CustomerComponent {
+
+}
+```
+
+2) property decorator
+
+function propertyDecorator(target:any, propertyKey:string){}
+
+class Product {
+    id:number;
+
+    @Upper()
+    name:string;
+
+    @Min(10)
+    price:number;
+}
+
+let p:Product = new Product(...);
+
+3) Method Decorator
+
+function propertyDecorator(target:any, methodName:string, descriptor?:PropertyDescriptor){}
 
 
+class Book {
 
+    @Valid
+    addBook(b:Book) {
+        //
+    }
+}
+
+============
+
+tsconfig.json
+ "experimentalDecorators": true,
+
+ Object.defineProperty(target, propertyKey, {
+            set:setter,
+            get:getter
+        })
+
+//propertyKey is "age"
+
+get age() {
+
+}
+
+set age(age) {
+    this.age = age;
+}
+
+age = 100; // set
+
+x = age; //get
+
+== 
+Call and Apply
+
+function update(name) {
+this.name = name;
+}
+let o = {"name":"A", "age": 11}
+update.call(o, "B")
+OR
+update.apply(o,["G"])
