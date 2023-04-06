@@ -661,3 +661,34 @@ getEmployee(2); ==> get result from cache
 
 Memoize:In computing, memoization or memoisation is an optimization technique used primarily to speed up computer programs by storing the results of expensive operations.
 
+=======================
+
+JavaScript in TypeScript
+
+* nodejs --> JS library
+* react --> Js library
+...
+
+
+npm i lodash
+
+Option 1:
+src/typings.d.ts
+declare module 'lodash' {
+    export function random(min:number, max:number) : number;
+}
+
+in index.ts
+import {random} from 'lodash';
+console.log(random(1,100));
+
+Option 2: using DefinetlyTyped
+Definitely Typed
+The repository for high quality TypeScript type definitions.
+
+npm i @types/lodash
+npm i @types/react
+npm i @types/node
+
+
+

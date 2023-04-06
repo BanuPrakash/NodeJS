@@ -1,3 +1,5 @@
+import {random} from 'lodash';
+
 import {filter, map, forEach, memoize} from './lib';
 
 interface Product {
@@ -40,3 +42,5 @@ console.timeEnd("first");
 console.time("second");
     console.log(memFib(34));
 console.timeEnd("second");
+
+console.log(random(1,100));
