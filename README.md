@@ -686,9 +686,19 @@ Option 2: using DefinetlyTyped
 Definitely Typed
 The repository for high quality TypeScript type definitions.
 
-npm i @types/lodash
-npm i @types/react
-npm i @types/node
+npm i @types/lodash -D
+npm i @types/react -D
+npm i @types/node -D
+
+==============
+
+Decorator and Webpack
+
+Resume @ 4:00
+
+
+
+
 
 
 
