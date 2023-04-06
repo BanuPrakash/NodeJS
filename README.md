@@ -596,6 +596,37 @@ let p:Product = {name:"Inverter AC", price:45000.00}; // valid
 
 Not null Assertion [Postfix !]
 
-========================
+============================
 
+TypeScript
+* statitically typed
+* string, number, boolean
+* enum, type, interface, any, unknown, union
+* as, in and is --> type assertions, type predicates
+* ? and !
 
+-----
+
+typescript project
+
+1) create package.json
+tsproj> npm init --y
+tsproj>npm i typescript
+tsproj> tsc --init
+
+"allowJs": true
+"sourceMap": true,
+
+a.ts --> a.map.js --> a.js
+
+Generic Type <T>
+
+TypeScript uses ES6 module system [ import and export]
+1)
+tsc ==> all .ts ==> js
+"start": "node ./dist/index.js",
+
+2) npm i ts-node
+compiles "ts" and loads in-memory ==> no physical "js" files
+and executes compiled "js"
+--> good in development stage
