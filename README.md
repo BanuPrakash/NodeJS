@@ -1042,3 +1042,37 @@ API --> MongoDB
 Docker for Desktop
 
 docker run --name some-mongo -d mongo:latest -p 27017:27017
+
+MongoDB --> NOSQL database --> BSON
+
+MongoDB
+Database
+Collection {table}
+document {row}
+fields {col}
+
+
+docker cp sales.json some-mongo:/tmp/sales.json
+docker cp employees.json some-mongo:/tmp/employees.json
+
+Access MongoShell:
+1) docker exec -it some-mongo bash
+mongoimport --db node_express_db --collection sales --drop --file tmp/sales.json
+mongoimport --db node_express_db --collection employees --drop --file tmp/employees.json
+
+# mongosh
+
+test>  use node_express_db
+node_express_db> db.sales.find().pretty() // shows 20 documents at time // use "it" for next set
+node_express_db> db.employees.find().pretty()
+
+Where clause:
+db.sales.find({"quarter":1})
+db.sales.find({"quarter":1, "category": 'Beverages'})
+
+Scalar values [ fields]
+db.sales.find({}, {"category":1})
+
+
+
+
