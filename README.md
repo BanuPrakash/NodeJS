@@ -1160,5 +1160,46 @@ npm i typescript express body-parser dotenv cookie-parser cors  bcrypt jsonwebto
 npm i -D @types/express @types/body-parser @types/cookie-parser @types/cors @types/bcrypt ts-node
 
 tsc --init
+
+npm i -D @types/node
 ```
+
+1) Get all products
+GET http://localhost:3000/products
+
+2) get product by id ==> use PathParameter
+GET http://localhost:3000/products/4
+
+3) get by category ==> Query Parameter
+GET http://localhost:3000/products?category=mobile
+
+4) Delete a product
+DELETE  http://localhost:3000/products/3
+
+5) update a product
+PUT  http://localhost:3000/products/3
+payload should contain new data for product with id "3" to be updated
+
+6) add a new product
+POST http://localhost:3000/products
+ayload should contain new product data
+
+Testing:
+Browser:
+http://localhost:3000/products/4
+http://localhost:3000/products
+
+POSTMAN
+POST : http://localhost:3000/products
+Headers:
+Accept: text/plain
+Content-type:application/json
+
+Body(raw)
+{
+  "id": 20,
+  "name": "LG Inverter AC",
+  "price": 45000.00,
+  "category": "Electrical"
+}
 
