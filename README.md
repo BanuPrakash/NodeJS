@@ -1019,3 +1019,26 @@ uglify --> shorten variable, function names
 
 npm run dev
 asset bundle.js 5.02 KiB
+
+
+Gulp:
+npm i typescript gulp@4.0.0 gulp-typescript
+
+```
+gulpfile.js:
+
+var gulp = require("gulp");
+var ts = require("gulp-typescript");
+var tsProject = ts.createProject("tsconfig.json");
+gulp.task("default", function () {
+  return tsProject.src().pipe(tsProject()).js.pipe(gulp.dest("dist"));
+});
+
+$ gulp
+```
+
+API --> MongoDB
+
+Docker for Desktop
+
+docker run --name some-mongo -d mongo:latest -p 27017:27017
