@@ -27,6 +27,13 @@ Chrome Web Browser
 NodeJS Latest LTS
 
 =====================================
+ products: Product[ ] = [
+            { "id": 1, "name": "iPhone", "price": 124447.44, "category": "mobile" },
+            { "id": 2, "name": "Onida", "price": 4444.44, "category": "tv" },
+            { "id": 3, "name": "OnePlus 6", "price": 98444.44, "category": "mobile" },
+            { "id": 4, "name": "HDMI connector", "price": 2444.00, "category": "computer" },
+            { "id": 5, "name": "Samsung", "price": 68000.00, "category": "tv" }
+        ];
 
 $ node --version
 v18.12.0
@@ -908,3 +915,63 @@ let o = {"name":"A", "age": 11}
 update.call(o, "B")
 OR
 update.apply(o,["G"])
+
+Task:
+https://eloquentjavascript.net/09_regexp.html
+Use RegularExpression validate name
+@Pattern("[a-zA-Z]{0,10}")
+name:string;
+
+========
+
+Webpack , ExpressTS
+
+===============
+
+Day 4
+
+NodeJS, CommonJS module system, TypeScript
+* string boolean, number
+* type, interface, class
+* any, unknown
+* Union, Optional, Not-null, typeof
+* as, in and is
+* Partial, Pick, Omit, ReturnType,
+* Generics --> HOF
+
+Where can i use NodeJS?
+
+* Building Client-side application [ React, Angular, Vue, Backbone, ...]
+-> TypeScript / DART / CoffeeScript / LiveScript ==> Our code
+--> Transpile in nodeJS and take the processed "js" to browser
+-> bundle, testing, static code analysis
+
+* Building Traditional web applications {CSR --> Client Side Rendering}
+--> Resource on server is converted into presentation and sent to client [ HTML or PDF]
+-> Similar to PHP, Servlet and JSP, ASP, ASP.NET
+
+* Building APIs
+--> RESTful Web services to serve various representation of state of resource [ JSON / XML]
+--> GraphQL WS
+
+* Realtime applications --> ChatBot
+
+* Streaming Platform ==> Netflix [Ruby/Rails --> NodeJS]
+
+NodeJS is not that good for any application which is CPU intense
+
+===================
+
+JavaScript build tools: automatically perform frequent tasks such as uglify, minification, compilation, unit testing, and linting.
+* Grunt
+* Gulp
+* Webpack
+
+Webpack:
+1) npm init --y
+create package.json
+
+2) npm i webpack webpack-cli webpack-dev-server html-webpack-plugin typescript ts-loader style-loader css-loader -D
+
+
+

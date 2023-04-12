@@ -1,7 +1,7 @@
 
 export default function Memo<T extends {}>(target:T, methodName:string, descriptor:PropertyDescriptor){
     let fn:Function = descriptor.value;
-
+    console.log(fn);
     let cache:any = {};
 
     descriptor.value = function(...args:any[]) {
