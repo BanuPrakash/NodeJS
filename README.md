@@ -1152,6 +1152,7 @@ ExpressJS: Fast, unopinionated, minimalist web framework for Node.js
 SSR ==> Web Applications --> to serve rendered pages to client
 CSR ==> APIs ==> serves representation of state of resource [ JSON / XML]
 
+```
 npm init --y
 
 npm i typescript express body-parser dotenv cookie-parser cors  bcrypt jsonwebtoken
@@ -1159,4 +1160,5 @@ npm i typescript express body-parser dotenv cookie-parser cors  bcrypt jsonwebto
 npm i -D @types/express @types/body-parser @types/cookie-parser @types/cors @types/bcrypt ts-node
 
 tsc --init
+```
 
