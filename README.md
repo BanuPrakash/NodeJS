@@ -1077,4 +1077,86 @@ db.sales.find({}, {"category":1})
 ```
 
 
+mongodb: The official MongoDB driver for Node.js.
+
+Mongoose
+Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment.
+
+https://mongoosejs.com/docs/guide.html
+
+Schemas:
+Everything in Mongoose starts with a Schema. 
+Each schema maps to a MongoDB collection and defines the shape of the documents within that collection.
+
+```
+const blogSchema = new Schema({
+  title: {
+    type:String,
+    required:true,
+    minlength:4,
+    maxlength:50
+  }, // String is shorthand for {type: String}
+  author: String,
+  body: String,
+  comments: [{ body: String, date: Date }],
+  date: { type: Date, default: Date.now },
+  hidden: Boolean,
+  meta: {
+    votes: Number,
+    favs: Number
+  }
+});
+
+const BlogModel = mongoose.model('Blog',blogSchema);
+The first argument is the singular name of the collection your model is for. Mongoose automatically looks for the plural, lowercased version of your model name.
+
+blogSchema ==> mapped to "blogs" collection
+
+Using "BlogModel" we perform CRUD operations on collection
+
+```
+
+Mongoose Example:
+```
+const mongoose = require('mongoose');
+
+const {connection} = mongoose;
+
+mongoose.connect('mongodb://localhost:27017/node_express_db');
+
+const EmployeeSchema = mongoose.Schema({
+    id:Number,
+    name:String,
+    username:String,
+    email:String,
+    company:String
+});
+
+const EmployeeModel = mongoose.model('Employee', EmployeeSchema);
+
+connection.once('connected', async () => {
+    try {
+        let docs = await EmployeeModel.find({});
+        docs.forEach(employee => {
+            console.log(employee);
+        })
+    } finally {
+        await connection.close();
+    }
+});
+
+//{"id":1,"name":"Leanne Graham","username":"Bret","email":"Sincere@april.biz","company":"Adobe"}
+
+```
+ExpressJS: Fast, unopinionated, minimalist web framework for Node.js
+SSR ==> Web Applications --> to serve rendered pages to client
+CSR ==> APIs ==> serves representation of state of resource [ JSON / XML]
+
+npm init --y
+
+npm i typescript express body-parser dotenv cookie-parser cors  bcrypt jsonwebtoken
+
+npm i -D @types/express @types/body-parser @types/cookie-parser @types/cors @types/bcrypt ts-node
+
+tsc --init
 
