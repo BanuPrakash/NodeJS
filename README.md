@@ -974,4 +974,48 @@ create package.json
 2) npm i webpack webpack-cli webpack-dev-server html-webpack-plugin typescript ts-loader style-loader css-loader -D
 
 
+3) tsc --init
+creates tsconfig.json
 
+
+ {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+}
+
+file.ts
+
+import './style/styles.css'
+css-loader --> loads "styles.css" into memory
+style-loader --> places that loaded CSS into
+<style>
+</style>
+of HTML
+
+-----
+
+ resolve: {
+        extensions: ['.tsx', '.ts', '.js']
+    }
+
+    import {add, map} from './lib';
+
+    checks for lib.tsx else lib.ts else lib.js
+
+
+The HtmlWebpackPlugin simplifies creation of HTML files to serve your webpack bundles. 
+This is especially useful for webpack bundles that include a hash in the filename which changes every compilation. 
+
+bundle.js in "dist"
+
+<script src="./dist/bundle$ddvdfdg@42.js"></script>
+<script src="./dist/bundle#dsfdsf23238!.js"></script>
+
+
+npm run prod
+asset bundle.js 1.25 KiB
+minify --> remove white space
+uglify --> shorten variable, function names
+
+npm run dev
+asset bundle.js 5.02 KiB
