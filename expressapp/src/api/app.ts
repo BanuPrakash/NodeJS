@@ -1,10 +1,17 @@
 import express, {Application, Request, Response} from 'express'; // web framework
-
+// import cors from 'cors';
 import {Server,createServer} from 'http';
 
 import ProductRoutes from '../routes/ProductRoute'; // class
+import SalesRoute from '../routes/SalesRoute';
+import mongoose from 'mongoose';
 
 const app:Application = express();
+
+// app.use(cors({
+//     origin: "http://localhost:8080",
+//     methods: "GET POST"
+// }));
 
 app.use(express.json()); // middleware --> payload to JSON
 
@@ -17,6 +24,10 @@ app.get("/", (req:Request, res:Response) => {
 });
 
 new ProductRoutes(app).configureRoutes();
+
+new SalesRoute(app).configureRoutes();
+
+mongoose.connect("mongodb://localhost:27017/node_express_db");
 
 server.listen(process.env.PORT || 3000, () => console.log("Server started!!!"));
 

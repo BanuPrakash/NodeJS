@@ -1203,3 +1203,60 @@ Body(raw)
   "category": "Electrical"
 }
 
+Flow:
+
+app.ts --> app.use(express.json()) Middleware -> ProductRoutes --> MiddleWare --> ProductController --> ProductService --> MongoDB
+
+---
+
+MongoDB or any other NoSQL --> Database for NodeJS
+User data in MongoDB --> BSON of JSON
+{
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 556",
+        "city": "Gwenborough",
+        "zipcode": "92998-3874",
+        "geo": {
+        "lat": "-37.3159",
+        "lng": "81.1496"
+    }
+},
+    "phone": "1-770-736-8031 x56442",
+    "website": "hildegard.org",
+    "company": {
+        "name": "Romaguera-Crona",
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
+    }
+}
+RDBMS --> methods on Stack will block any other async operations
+Join 
+User table
+Company table
+Address table
+
+================
+
+NodeJS --->  MongoDB driver {module} npm i --> MongoDB
+NodeJS --->  Mongoose {ODM layer on top of MongoDB Driver} --> MongoDB
+
+Create Schema to map to Collection {schema contains type of data, validation rules}
+Schema --> Model { CRUD operations}
+
+db.sales.find();
+where "Sales" is the Model name
+Sales.find();
+Sales.create();
+Sales.insert();
+
+ExpressJS --> Web Framework
+
+--------------------------------
+
+npm i mongoose
+npm i -D @types/mongoose

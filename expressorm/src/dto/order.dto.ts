@@ -1,0 +1,24 @@
+/*
+{
+    "total": 9255.00,
+    "customer": "jack@gmail.com",
+    "Items": [
+        {"amount" : 3434, "qty" : 2, "product" : 1},
+        {"amount" : 5223, "qty" : 1, "product" : 2}
+    ]
+}
+*/
+
+interface ItemDTO {
+    product?:number,
+    qty? :number,
+    amount?: number
+}
+
+export default interface OrderDTO {
+    oid?:number,
+    total?:number,
+    customer?:string,
+    Items: ItemDTO[]
+}
+
