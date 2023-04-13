@@ -1276,5 +1276,107 @@ MiddleWare
 Register and Login
 Protect our resources
 
-Resume @11:15
+Security
+
+APIs --> Stateless
+
+JSON Web Tokens are an open, industry standard RFC 7519 method for representing claims securely between two parties.
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+
+HEADER:
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+
+PAYLOAD:
+{
+  "sub": "banu",
+  "iat": 34234234,
+  "exp": 34534545,
+  "iss": "http://auth.adobe.com",
+  "authorities": "read write edit",
+  ...
+}
+
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  <<your-256-bit-secret>> --> Symmetric key
+) 
+
+Symmetric key: same key for encrypt and decrypt
+
+ASymmetric Key: 
+Private key for JWtEncoder
+Public Key for JWTDecoder
+
+openssl or keytool to generate key
+
+
+
+npm i jsonwebtoken
+npm i @types/jsonwebtoken
+
+Login:
+email:
+password:
+
+Response
+<<token>>
+
+GET : http://localhost:3000/products
+Header
+Authorization: Bearer <<token>>
+
+
+====
+
+Flow:
+1) Register
+
+POST: http://localhost:3000/register
+Headers:
+Content-type: application/json
+
+Body(raw)
+{
+    "email":"banu@gmail.com",
+    "password":"secret"
+}
+
+2) node_express_db> db.users.find()
+[
+  {
+    _id: ObjectId("6437a5a00b635feba252317f"),
+    email: 'banu@gmail.com',
+    password: '$2b$12$D1.w.mrIJYZ2ngU2whX/fu.zJlUXgo6ACBKRPhqTObLGXeWKUVCYO',
+    __v: 0
+  }
+]
+
+3) Login
+POST: http://localhost:3000/login
+Headers:
+Content-type: application/json
+
+Body(raw)
+{
+    "email":"banu@gmail.com",
+    "password":"secret"
+}
+
+Response:
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYmFudUBnbWFpbC5jb20iLCJpYXQiOjE2ODEzNjg2MzksImV4cCI6MTY4MzA1NTE5MjM0NywiaXNzIjoiaHR0cDovL2F1dGguYWRvYmUuY29tIn0.0hD8lupuegyQff0ncsHpsK7KwYD_xZJyO7FpdFUyHYw"
+}
+
+4) 
+GET: http://localhost:3000/products
+Header
+Authorization: Bearer <<token>>
+
+
+
 

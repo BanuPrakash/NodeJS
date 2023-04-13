@@ -1,5 +1,6 @@
 import { Application, Request, Response } from "express";
 import ProductController from "../controller/ProductController";// object
+import ProductMiddleWare from "../controller/ProductMiddleWare";
 
 export default class ProductRoutes {
     constructor(private app:Application){}
@@ -8,7 +9,8 @@ export default class ProductRoutes {
         // http://localhost:3000/products
         this.app.route('/products')
         .get(ProductController.listProducts)
-        .post(ProductController.createProduct);
+        .post(ProductMiddleWare.validateProduct,
+            ProductController.createProduct);
 
          // http://localhost:3000/products/3
         this.app.route('/products/:id')

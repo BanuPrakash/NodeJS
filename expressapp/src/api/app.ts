@@ -7,6 +7,8 @@ import SalesRoute from '../routes/SalesRoute';
 import mongoose from 'mongoose';
 import ProductService from '../services/ProductService';
 import path from 'path';
+import UserRoute from '../routes/UserRoute';
+import { tokenGuard } from '../services/TokenGuard';
 
 const app:Application = express();
 
@@ -29,23 +31,28 @@ app.get("/", (req:Request, res:Response) => {
     res.status(200).send(msg);
 });
 
-app.get('/productPage',   (req:Request, res:Response) => {
-       res.render('productView',  {
-            'title' : "Product View",
-            'products': [
-                { "id": 1, "name": "iPhone", "price": 124447.44, "category": "mobile" },
-                { "id": 2, "name": "Onida", "price": 4444.44, "category": "tv" },
-                { "id": 3, "name": "OnePlus 6", "price": 98444.44, "category": "mobile" },
-                { "id": 4, "name": "HDMI connector", "price": 2444.00, "category": "computer" },
-                { "id": 5, "name": "Samsung", "price": 68000.00, "category": "tv" }
-            ]
-        });
-});
+
+new UserRoute(app).configureRoutes();
+
+app.use(tokenGuard); // middleware
 
 new ProductRoutes(app).configureRoutes();
 
 new SalesRoute(app).configureRoutes();
 
+
+app.get('/productPage',   (req:Request, res:Response) => {
+    res.render('productView',  {
+         'title' : "Product View",
+         'products': [
+             { "id": 1, "name": "iPhone", "price": 124447.44, "category": "mobile" },
+             { "id": 2, "name": "Onida", "price": 4444.44, "category": "tv" },
+             { "id": 3, "name": "OnePlus 6", "price": 98444.44, "category": "mobile" },
+             { "id": 4, "name": "HDMI connector", "price": 2444.00, "category": "computer" },
+             { "id": 5, "name": "Samsung", "price": 68000.00, "category": "tv" }
+         ]
+     });
+});
 mongoose.connect("mongodb://localhost:27017/node_express_db");
 
 server.listen(process.env.PORT || 3000, () => console.log("Server started!!!"));
