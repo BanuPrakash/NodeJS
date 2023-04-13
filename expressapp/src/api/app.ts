@@ -5,8 +5,14 @@ import {Server,createServer} from 'http';
 import ProductRoutes from '../routes/ProductRoute'; // class
 import SalesRoute from '../routes/SalesRoute';
 import mongoose from 'mongoose';
+import ProductService from '../services/ProductService';
+import path from 'path';
 
 const app:Application = express();
+
+// view engine
+app.set("view engine", 'ejs');
+app.set('views', path.join(__dirname, '../views'));
 
 // app.use(cors({
 //     origin: "http://localhost:8080",
@@ -21,6 +27,19 @@ const msg = "Server running at http://localhost:3000";
 
 app.get("/", (req:Request, res:Response) => {
     res.status(200).send(msg);
+});
+
+app.get('/productPage',   (req:Request, res:Response) => {
+       res.render('productView', {
+            'title' : "Product View",
+            'products': [
+                { "id": 1, "name": "iPhone", "price": 124447.44, "category": "mobile" },
+                { "id": 2, "name": "Onida", "price": 4444.44, "category": "tv" },
+                { "id": 3, "name": "OnePlus 6", "price": 98444.44, "category": "mobile" },
+                { "id": 4, "name": "HDMI connector", "price": 2444.00, "category": "computer" },
+                { "id": 5, "name": "Samsung", "price": 68000.00, "category": "tv" }
+            ]
+        });
 });
 
 new ProductRoutes(app).configureRoutes();

@@ -1260,3 +1260,13 @@ ExpressJS --> Web Framework
 
 npm i mongoose
 npm i -D @types/mongoose
+
+View Engine templates: --> SSR
+* Handlebar
+* Mustache
+* underscore
+* PUG
+* EJS
+
+npm i ejs
+
