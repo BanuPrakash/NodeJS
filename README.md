@@ -1270,3 +1270,11 @@ View Engine templates: --> SSR
 
 npm i ejs
 
+=====================
+
+MiddleWare
+Register and Login
+Protect our resources
+
+Resume @11:15
+

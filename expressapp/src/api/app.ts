@@ -30,7 +30,7 @@ app.get("/", (req:Request, res:Response) => {
 });
 
 app.get('/productPage',   (req:Request, res:Response) => {
-       res.render('productView', {
+       res.render('productView',  {
             'title' : "Product View",
             'products': [
                 { "id": 1, "name": "iPhone", "price": 124447.44, "category": "mobile" },
